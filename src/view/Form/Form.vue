@@ -13,9 +13,9 @@
       <div class="title">手机号</div>
       <el-input v-model="phoneNumber" type="number" placeholder="请输入手机号"></el-input>
     </div>
-    <div class="submitContent" @click="submit">
-      提交
-    </div>
+    
+      <el-button class="submitBtn" type="primary" @click="submit">提交</el-button>
+    
   </div>
 </template>
 
@@ -162,13 +162,35 @@ export default {
         }
       ],
       position: "",
-      phoneNumber: "",
+      phoneNumber: ""
     };
   },
-  mounted() {},
+  mounted() {
+    if (localStorage.getItem("position")) {
+      this.position = localStorage.getItem("position");
+    }
+    if (localStorage.getItem("phoneNumber")) {
+      this.phoneNumber = localStorage.getItem("phoneNumber");
+    }
+  },
   methods: {
-    submit() {
+    async submit() {
       console.log(this.position, this.phoneNumber);
+      localStorage.setItem("position", this.position);
+      localStorage.setItem("phoneNumber", this.phoneNumber);
+
+      //发送请求
+      const data = {
+        position: this.position,
+        phoneNumber: this.phoneNumber,
+      }
+      const postUserdata = await axios.post("/postUserdata",data);
+
+      if(this.position === "南一寝室楼" || this.position === "南二寝室楼" || this.position === "南三寝室楼" || this.position === "南四寝室楼" || this.position === "南五寝室楼" || this.position === "南一寝室楼" || this.position === "南六寝室楼" || this.position === "南七寝室楼" || this.position === "南八寝室楼" || this.position === "南九寝室楼" || this.position === "南十寝室楼" || this.position === "南十一寝室楼" || this.position === "南十二寝室楼" || this.position === "游泳馆" || this.position === "校医院" || this.position === "工程学院" || this.position === "电信学院" || this.position === "水利学院" || this.position === "动医学院" || this.position === "园艺学院" || this.position === "老图书馆" || this.position === "化学馆" || this.position === "农学院" || this.position === "艺术学院" || this.position === "音乐厅" || this.position === "主楼" ) {
+        this.$router.push("/successSouth");
+      }else {
+        this.$router.push("/successNorth");
+      }
     }
   }
 };
@@ -187,6 +209,9 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+.submitBtn {
+  height: 10vh;
 }
 </style>
 
