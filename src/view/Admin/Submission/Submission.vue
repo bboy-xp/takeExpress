@@ -17,7 +17,7 @@
             :value="item.value">
           </el-option>
         </el-select>
-        <el-button class="" type="primary" @click="allOrders">显示全部订单</el-button>
+        <el-button class="showAllOrders" type="primary" @click="allOrders">显示全部订单</el-button>
       </div>
       <div class="tableBody">
         <el-table
@@ -33,6 +33,9 @@
             prop="phoneNumber"
             label="电话"
             width="110">
+            <template slot-scope="scope">
+              <a :href="'tel:' + scope.row.phoneNumber">{{scope.row.phoneNumber}}</a>
+            </template>
           </el-table-column>
           <el-table-column
             prop="createdAt"
@@ -284,5 +287,6 @@ export default {
   align-items: center;
   margin-right: 10px;
 }
-
+.showAllOrders {
+}
 </style>

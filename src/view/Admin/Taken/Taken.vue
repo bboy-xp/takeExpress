@@ -33,6 +33,9 @@
           prop="phoneNumber"
           label="电话"
           width="110">
+          <template slot-scope="scope">
+              <a :href="'tel:' + scope.row.phoneNumber">{{scope.row.phoneNumber}}</a>
+            </template>
         </el-table-column>
         <el-table-column
           prop="createdAt"
