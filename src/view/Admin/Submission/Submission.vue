@@ -207,7 +207,7 @@ export default {
   },
   async mounted() {
     const getOrders = await axios.get("/getSubmissionOrders");
-    console.log(getOrders.data);
+    // console.log(getOrders.data);
     this.tableData = getOrders.data;
   },
   methods: {

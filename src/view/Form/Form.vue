@@ -1,7 +1,12 @@
 <template>
   <div class="formContent">
+    <div class="title">代取快递界面</div>
     <div class="form">
-      <div class="title">选择取件地址</div>
+      <div class="tableContent1">
+      <div class="formTitle">
+        <img class="positionImg" src="../../assets/img/position.png" alt="404">
+        <sapn>选择取件地址</sapn>
+      </div>
       <el-select v-model="position" placeholder="请选择">
         <el-option
           v-for="item in options"
@@ -10,12 +15,16 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <div class="title">手机号</div>
-      <el-input v-model="phoneNumber" type="number" placeholder="请输入手机号"></el-input>
+      </div>
+      <div class="tableContent2">
+        <div class="formTitle">
+          <img class="phoneImg" src="../../assets/img/phone.png" alt="404">
+          <span>手机号</span>
+        </div>
+        <el-input v-model="phoneNumber" type="number" placeholder="请输入手机号"></el-input>
+      </div>
     </div>
-    
-      <el-button class="submitBtn" type="primary" @click="submit">提交</el-button>
-    
+    <el-button class="submitBtn" type="primary" @click="submit">提交</el-button>
   </div>
 </template>
 
@@ -166,6 +175,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "代取表单";
     if (localStorage.getItem("position")) {
       this.position = localStorage.getItem("position");
     }
@@ -175,20 +185,47 @@ export default {
   },
   methods: {
     async submit() {
-      console.log(this.position, this.phoneNumber);
+      // console.log(this.position, this.phoneNumber);
       localStorage.setItem("position", this.position);
       localStorage.setItem("phoneNumber", this.phoneNumber);
 
       //发送请求
       const data = {
         position: this.position,
-        phoneNumber: this.phoneNumber,
-      }
-      const postUserdata = await axios.post("/postUserdata",data);
+        phoneNumber: this.phoneNumber
+      };
+      const postUserdata = await axios.post("/postUserdata", data);
 
-      if(this.position === "南一寝室楼" || this.position === "南二寝室楼" || this.position === "南三寝室楼" || this.position === "南四寝室楼" || this.position === "南五寝室楼" || this.position === "南一寝室楼" || this.position === "南六寝室楼" || this.position === "南七寝室楼" || this.position === "南八寝室楼" || this.position === "南九寝室楼" || this.position === "南十寝室楼" || this.position === "南十一寝室楼" || this.position === "南十二寝室楼" || this.position === "游泳馆" || this.position === "校医院" || this.position === "工程学院" || this.position === "电信学院" || this.position === "水利学院" || this.position === "动医学院" || this.position === "园艺学院" || this.position === "老图书馆" || this.position === "化学馆" || this.position === "农学院" || this.position === "艺术学院" || this.position === "音乐厅" || this.position === "主楼" ) {
+      if (
+        this.position === "南一寝室楼" ||
+        this.position === "南二寝室楼" ||
+        this.position === "南三寝室楼" ||
+        this.position === "南四寝室楼" ||
+        this.position === "南五寝室楼" ||
+        this.position === "南一寝室楼" ||
+        this.position === "南六寝室楼" ||
+        this.position === "南七寝室楼" ||
+        this.position === "南八寝室楼" ||
+        this.position === "南九寝室楼" ||
+        this.position === "南十寝室楼" ||
+        this.position === "南十一寝室楼" ||
+        this.position === "南十二寝室楼" ||
+        this.position === "游泳馆" ||
+        this.position === "校医院" ||
+        this.position === "工程学院" ||
+        this.position === "电信学院" ||
+        this.position === "水利学院" ||
+        this.position === "动医学院" ||
+        this.position === "园艺学院" ||
+        this.position === "老图书馆" ||
+        this.position === "化学馆" ||
+        this.position === "农学院" ||
+        this.position === "艺术学院" ||
+        this.position === "音乐厅" ||
+        this.position === "主楼"
+      ) {
         this.$router.push("/successSouth");
-      }else {
+      } else {
         this.$router.push("/successNorth");
       }
     }
@@ -205,13 +242,39 @@ export default {
 }
 .formContent {
   height: 100vh;
-  width: 100vw;
+  width: 96vw;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding: 0 2vw;
 }
 .submitBtn {
-  height: 10vh;
+  height: 6vh;
+}
+.title {
+  font-size: 5vh;
+  margin: 0 auto;
+  padding: 2vh;
+}
+.tableContent1 {
+  margin-bottom: 2vh;
+}
+.tableContent2 {
+  margin-bottom: 3vh;
+}
+.formTitle {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.positionImg {
+  height: 4vh;
+  width: 4vh;
+  margin-bottom: -1vh;
+}
+.phoneImg {
+  height: 4vh;
+  width: 4vh;
+  margin-bottom: -1vh;
 }
 </style>
 
