@@ -1,7 +1,9 @@
 <template>
   <div class="successSouthContent">
     <div class="title">提交成功</div>
-    <div class="qrCodeContent"></div>
+    <div class="qrCodeContent">
+      <img class="QRcodeImg" src="../../assets/img/QRcodeSouth.jpg" alt="404">
+    </div>
     <div class="footer">footer</div>
   </div>
 </template>
@@ -26,6 +28,7 @@ export default {
   overflow: hidden;
 }
 .title {
+  margin-top: 4vh;
   font-size: 6vh;
   font-weight: bold;
 
@@ -34,7 +37,10 @@ export default {
   height: 40vh;
   width: 40vh;
   margin-top: 6vh;
-  background-color: blue;
+}
+.QRcodeImg {
+  height: 40vh;
+  width: 40vh;
 }
 .footer {
   margin-top: 6vh;

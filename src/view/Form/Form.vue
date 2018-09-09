@@ -241,7 +241,7 @@ export default {
   /* -webkit-overflow-scrolling: touch; */
 }
 .formContent {
-  height: 100vh;
+  height: 340px;
   width: 96vw;
   display: flex;
   flex-direction: column;
@@ -249,10 +249,11 @@ export default {
   padding: 0 2vw;
 }
 .submitBtn {
-  height: 6vh;
+  height: 50px;
+  font-size: 17px;
 }
 .title {
-  font-size: 5vh;
+  font-size: 40px;
   margin: 0 auto;
   padding: 2vh;
 }
@@ -263,17 +264,17 @@ export default {
   margin-bottom: 3vh;
 }
 .formTitle {
-  font-size: 3vh;
+  font-size: 22px;
   margin-bottom: 2vh;
 }
 .positionImg {
-  height: 4vh;
-  width: 4vh;
+  height: 30px;
+  width: 30px;
   margin-bottom: -1vh;
 }
 .phoneImg {
-  height: 4vh;
-  width: 4vh;
+  height: 30px;
+  width: 30px;
   margin-bottom: -1vh;
 }
 </style>
