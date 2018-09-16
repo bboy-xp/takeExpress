@@ -1,6 +1,6 @@
 <template>
   <div class="successNorthContent">
-    <div class="title">提交成功</div>
+    <!-- <div class="title">提交成功</div> -->
     <div class="qrCodeContent">
       <img class="QRcodeImg" src="../../assets/img/QRcodeNorth.jpg" alt="404">
     </div>

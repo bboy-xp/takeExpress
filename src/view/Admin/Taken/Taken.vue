@@ -66,6 +66,39 @@ export default {
       position: "",
       options: [
         {
+          value: "北一寝室楼"
+        },
+        {
+          value: "北二寝室楼"
+        },
+        {
+          value: "北三寝室楼"
+        },
+        {
+          value: "北四寝室楼"
+        },
+        {
+          value: "北五寝室楼"
+        },
+        {
+          value: "北六寝室楼"
+        },
+        {
+          value: "北七寝室楼"
+        },
+        {
+          value: "北八寝室楼"
+        },
+        {
+          value: "北九寝室楼"
+        },
+        {
+          value: "北十寝室楼"
+        },
+        {
+          value: "北区其他"
+        },
+        {
           value: "南一寝室楼"
         },
         {
@@ -102,108 +135,13 @@ export default {
           value: "南十二寝室楼"
         },
         {
-          value: "游泳馆"
-        },
-        {
-          value: "校医院"
-        },
-        {
-          value: "工程学院"
-        },
-        {
-          value: "电信学院"
-        },
-        {
-          value: "水利学院"
-        },
-        {
-          value: "动医学院"
-        },
-        {
-          value: "园艺学院"
-        },
-        {
-          value: "老图书馆"
-        },
-        {
-          value: "化学馆"
-        },
-        {
-          value: "农学院"
-        },
-        {
-          value: "艺术学院"
-        },
-        {
-          value: "音乐厅"
-        },
-        {
-          value: "主楼"
-        },
-        {
-          value: "新图书馆"
-        },
-        {
-          value: "食品学院"
-        },
-        {
-          value: "实验楼"
-        },
-        {
-          value: "教学楼"
-        },
-        {
-          value: "动科学院"
-        },
-        {
-          value: "动物医院"
-        },
-        {
-          value: "研楼"
-        },
-        {
-          value: "创客中心"
-        },
-        {
-          value: "北一寝室楼"
-        },
-        {
-          value: "北二寝室楼"
-        },
-        {
-          value: "北三寝室楼"
-        },
-        {
-          value: "北四寝室楼"
-        },
-        {
-          value: "北五寝室楼"
-        },
-        {
-          value: "北六寝室楼"
-        },
-        {
-          value: "北七寝室楼"
-        },
-        {
-          value: "北八寝室楼"
-        },
-        {
-          value: "北九寝室楼"
-        },
-        {
-          value: "北十寝室楼"
-        },
-        {
-          value: "新艺楼"
-        },
-        {
-          value: "成栋楼"
+          value: "南区其他"
         }
-      ]
+      ],
     };
   },
   async mounted() {
+    document.title = "代取快递后台";
     const getTakenOrders = await axios.get("/getTakenOrders");
     this.tableData = getTakenOrders.data;
   },
